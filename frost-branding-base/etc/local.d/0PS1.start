@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sed -i 's/PS1/#PS1/' /etc/skel/.bash /etc/bash.bashrc
+
+rm -f $0

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+neofetch >| /etc/issue
+# Give login info in live environment
+live='/etc/issue.live'
+[ -f $live ] && { cat $live >> /etc/issue; sed -i '/live/d' $0; }
+rm -f $live &
+
+# Don't use the dna_spiral wallpaper in Plasma
+sed -i 's/Artix_dna_spiral_dark/GradientGlowBlue/' /usr/share/plasma/look-and-feel/frost.dark/contents/layouts/org.kde.plasma.desktop-layout.js 2>/dev/null
+sed -i '/dna_spiral/d' $0
